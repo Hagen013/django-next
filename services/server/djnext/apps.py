@@ -1,0 +1,38 @@
+import os
+
+from django.apps import AppConfig
+from django.conf import settings
+
+
+class DjnextConfig(AppConfig):
+    name = 'djnext'
+    module_name = 'djnext.backend.Backend'
+
+    def set_settings(self):
+        self.settings = None
+        for b in settings.TEMPLATES:
+            if b.get('BACKEND', None) == self.module_name:
+                self.settings = b
+
+    def set_options(self):
+        self.set_settings()
+
+        if not self.settings:
+            settings.TEMPLATES.insert(0, dict(
+                BACKEND=self.module_name,
+                NAME='djnext',
+            ))
+            self.set_settings()
+        # todo: else log settings it found
+
+        self.settings.setdefault('OPTIONS', {})
+        self.options = self.settings['OPTIONS']
+        self.options.setdefault(
+            'NEXTJS_DSN',
+            os.getenv('NEXTJS_DSN', 'http://localhost:3000')
+        )
+
+        # todo: log final settings
+
+    def ready(self):
+        self.set_options()

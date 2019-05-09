@@ -1,0 +1,8 @@
+services/server/venv
+services/client/node_modules
+services/client/.next
+services/client/package-lock.json
+env
+
+*.pyc
+*__pycache__

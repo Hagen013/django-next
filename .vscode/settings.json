@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "services/client/node_modules": true,
+        "services/client/package-lock.json": true,
+        "services/server/venv": true
+    }
+}
