@@ -5,7 +5,7 @@ const linkStyle = {
 }
 
 const Header = () => (
-  <div>
+  <div className="header">
     <Link href="/">
       <a style={linkStyle}>Home</a>
     </Link>

@@ -1,15 +1,17 @@
 import Header from './Header'
+import Sidebar from './Sidebar'
+import Content from './Content'
+import Footer from './Footer'
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD'
-}
 
 const Layout = props => (
-  <div style={layoutStyle}>
+  <div>
     <Header />
+    <Content>
     {props.children}
+    </Content>
+    <Sidebar />
+    <Footer />
   </div>
 )
 

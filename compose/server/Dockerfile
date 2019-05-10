@@ -2,7 +2,7 @@ FROM hagen013/alpine:latest
 
 # INSTALL REQUIREMENTS
 COPY  services/server/requirements/base.txt base.txt
-COPY  server/requirements/production.txt requirements.txt
+COPY  services/server/requirements/production.txt requirements.txt
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # COPY ENTRYPOINT AND CODE

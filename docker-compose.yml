@@ -33,6 +33,7 @@ services:
     volumes:
       - /var/djnext:/var/djnext
     links:
+      - nextjs:nextjs
       - postgres:postgres
     depends_on:
       - postgres
